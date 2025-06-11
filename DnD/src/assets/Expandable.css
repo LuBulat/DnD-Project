@@ -1,0 +1,216 @@
+.item-button-container {
+    margin: 10px;
+    border: 2px solid silver;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+  
+  .item-button-container:hover {
+    box-shadow: 0 0 20px gold;
+    transform: translateY(-2px);
+  }
+  
+  .item-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, rgba(192, 192, 192, 0.2), rgba(192, 192, 192, 0.1));
+    border: none;
+    color: gold;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .item-button:hover {
+    background: linear-gradient(to right, rgba(192, 192, 192, 0.3), rgba(192, 192, 192, 0.2));
+  }
+  
+  .arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  .arrow-down {
+    transform: rotate(180deg);
+  }
+  
+  .loading-text {
+    color: silver;
+    text-align: center;
+    padding: 10px;
+    font-style: italic;
+  }
+  
+  .description-container {
+    padding: 20px 45px;
+    color: silver;
+    border-top: 1px solid silver;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .item-button-container .description-content {
+    line-height: 1.6;
+    font-family: 'Garamond', 'Times New Roman', serif;
+  }
+  
+  .item-button-container .description-content h1,
+  .item-button-container .description-content h2,
+  .item-button-container .description-content h3,
+  .item-button-container .description-content h4,
+  .item-button-container .description-content h5,
+  .item-button-container .description-content h6 {
+    color: gold;
+    margin: 1.5rem 0 1rem 0;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(218, 165, 32, 0.5);
+  }
+  
+  .item-button-container .description-content h1 {
+    font-size: 2.6rem;
+    border-bottom: 2px solid silver;
+  }
+  
+  .item-button-container .description-content h2 {
+    font-size: 2.3rem;
+  }
+  
+  .item-button-container .description-content h3 {
+    font-size: 2rem;
+  }
+
+  .item-button-container .description-content h4 {
+    font-size: 1.7rem;
+  }
+  
+  .item-button-container .description-content p {
+    margin: 1rem 0;
+    color: silver;
+    text-align: justify;
+    font-size: 1.5rem;
+  }
+  
+  .item-button-container .description-content ul,
+  .item-button-container .description-content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    color: silver;
+    font-size: 1.5rem;
+  }
+  
+  .item-button-container .description-content li {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+  }
+  
+  .item-button-container .description-content strong,
+  .item-button-container .description-content b {
+    color: gold;
+    font-weight: bold;
+  }
+  
+  .item-button-container .description-content em,
+  .item-button-container .description-content i {
+    font-style: italic;
+    color: #c0c0c0;
+  }
+  
+  .item-button-container .description-content blockquote {
+    border-left: 3px solid gold;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: silver;
+    font-style: italic;
+  }
+  
+  .item-button-container .description-content a {
+    color: gold;
+    text-decoration: none;
+    border-bottom: 1px dashed gold;
+    transition: all 0.3s ease;
+  }
+  
+  .item-button-container .description-content a:hover {
+    color: #ffd700;
+    border-bottom: 1px solid gold;
+    text-shadow: 0 0 5px rgba(218, 165, 32, 0.5);
+  }
+  
+  .item-button-container .description-content table {
+    width: 98%;
+    border-collapse: collapse;
+    margin: 1rem auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid silver;
+  }
+  
+  .item-button-container .description-content table th,
+  .item-button-container .description-content table td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1.4rem;
+    color: silver;
+    border: 1px solid silver;
+  }
+  
+  .item-button-container .description-content table th {
+    background-color: rgba(218, 165, 32, 0.3);
+    color: gold;
+    font-weight: bold;
+  }
+  
+  .item-button-container .description-content table tr:nth-child(even) {
+    background-color: rgba(192, 192, 192, 0.1);
+  }
+  
+  .item-button-container .description-content table tr:hover {
+    background-color: rgba(218, 165, 32, 0.2);
+  }
+  
+  .item-button-container .description-content code {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: gold;
+    border: 1px solid silver;
+    font-size: 1.4rem;
+  }
+
+  .num{
+    width: 4%;
+  }
+
+  .item-button-container .description-content table .land {
+    background-color: rgba(192, 192, 192, 0.2);
+    color: gold;
+    font-weight: bold;
+  }
+
+  .titles{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .num1{
+    width: 6%;
+  }
+
+  .effect{
+    width: 42%;
+  }

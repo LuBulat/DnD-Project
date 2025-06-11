@@ -1,0 +1,17 @@
+* {
+  cursor: url('@/assets/cursor.png'), auto;
+  font-family: Garamond, 'Times New Roman', Times, serif;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url('@/assets/dnd.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: gold;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+}

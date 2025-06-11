@@ -1,0 +1,15 @@
+<select v-model="character.armor" @change="updateAC">
+  <option value="">No Armor (10 + DEX mod)</option>
+  <option value="padded">Padded (11 + DEX mod)</option>
+  <option value="leather">Leather (11 + DEX mod)</option>
+  <option value="studded">Studded Leather (12 + DEX mod)</option>
+  <option value="hide">Hide (12 + DEX mod, max 2)</option>
+  <option value="chain_shirt">Chain Shirt (13 + DEX mod, max 2)</option>
+  <option value="scale_mail">Scale Mail (14 + DEX mod, max 2)</option>
+  <option value="breastplate">Breastplate (14 + DEX mod, max 2)</option>
+  <option value="half_plate">Half Plate (15 + DEX mod, max 2)</option>
+  <option value="ring_mail">Ring Mail (14)</option>
+  <option value="chain_mail">Chain Mail (16)</option>
+  <option value="splint">Splint (17)</option>
+  <option value="plate">Plate (18)</option>
+</select>

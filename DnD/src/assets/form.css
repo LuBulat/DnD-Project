@@ -1,0 +1,121 @@
+.form-container {
+    max-width: 300px; 
+    width: 100%;
+    margin: 100px auto;
+    padding: 30px;
+    border: 2px solid silver;
+    border-radius: 50px;
+    box-shadow: 0 0 50px black;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 30px;
+    color: gold;
+    margin-bottom: 3px;
+  }
+
+  .input-group input {
+    width: 90%;
+    font-size: 25px;
+    margin-top: 5px;
+    padding: 1px 5px;
+    border: 2px solid silver;
+    border-radius: 4px;
+    background-color: rgba(192, 192, 192, 0.45);
+    color: gold;
+  }
+
+  .input-group input:focus {
+    border: 2px solid gold;
+    outline: none;
+  }
+
+  button {
+    background-color: rgba(125, 125, 125, 0.5);
+    color: gold;
+    font-weight: bold;
+    padding: 10px 0px;
+    border: 2px solid silver;
+    border-radius: 30px;
+    width: 95%;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 25px;
+  }
+
+  button:hover {
+    background-color: rgba(192, 192, 192, 0.5);
+    border-color: gold;
+  }
+
+  /* Stilovi za validaciju */
+  .invalid-input {
+    border: 2px solid #ff3860 !important;
+    background-color: rgba(255, 56, 96, 0.1) !important;
+    animation: shake 0.5s;
+  }
+
+  /* Animacija za shake efekat */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+
+  /* Stilovi za notifikacije */
+  .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.2rem;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 300px;
+    text-align: center;
+  }
+
+  .notification.success {
+    background: linear-gradient(to right, #2ecc71, #27ae60);
+    border: 2px solid #27ae60;
+  }
+
+  .notification.error {
+    background: linear-gradient(to right, #e74c3c, #c0392b);
+    border: 2px solid #c0392b;
+  }
+
+  /* Animacije za notifikacije */
+  .slide-fade-enter-active {
+    transition: all 0.3s ease-out;
+  }
+
+  .slide-fade-leave-active {
+    transition: all 0.3s ease-in;
+  }
+
+  .slide-fade-enter-from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  .slide-fade-leave-to {
+    transform: translateX(30px);
+    opacity: 0;
+  }
