@@ -1791,6 +1791,13 @@
             this.character.baseRaceScores[ability.name] = this.character.abilities[ability.name].score;
           });
         }
+        // Resetuj brzinu na standardnu vrednost za rasu
+        if (this.character.race === 'Elf') {
+          this.character.baseSpeed = 30;
+          this.character.speed = 30;
+        }
+        
+        // Postavi brzinu na 35 samo za Wood Elf
         if (subraceName === 'Wood Elf'){
           this.character.baseSpeed = 35;
           this.character.speed = 35;
@@ -2389,6 +2396,9 @@
           this.character.baseRaceScores[ability.name] = this.character.abilities[ability.name].score;
         });
 
+        // Show notification about skill choices bonus
+        this.showInfoNotification("As a Half-Elf, you gain proficiency in any two skills of your choice.");
+
         // Zatvori modal
         this.showHalfElfAbilityScore = false;
       },
@@ -2696,6 +2706,12 @@
               acc[skill] = data.manualModifier || 0;
               return acc;
             }, {}),
+            // Dodajemo podatke o choices za čuvanje
+            selectableSkills: this.selectableSkills,
+            maxSelectableSkills: this.maxSelectableSkills,
+            previousRaceBonus: this.previousRaceBonus,
+            previousClassChoices: this.previousClassChoices,
+            previousOverlapCount: this.previousOverlapCount,
           }
           
           let url = 'http://localhost:5000/api/characters'
@@ -2707,9 +2723,6 @@
             method = 'put'
           }
           
-          // Log the data being sent
-          console.log('Sending character data:', JSON.stringify(characterData, null, 2))
-          
           const response = await axios({
             method,
             url,
@@ -2718,9 +2731,6 @@
               'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
           })
-          
-          // Log the response
-          console.log('Server response:', response.data)
           
           // Show success notification
           this.showSuccessNotification('Character saved successfully!')
@@ -3063,6 +3073,13 @@
             this.updatePassiveWisdom()
             
             this.showSuccessNotification('Character loaded successfully!')
+            
+            // Učitavanje podataka o choices
+            this.selectableSkills = characterData.selectableSkills || [];
+            this.maxSelectableSkills = characterData.maxSelectableSkills || 0;
+            this.previousRaceBonus = characterData.previousRaceBonus || 0;
+            this.previousClassChoices = characterData.previousClassChoices || 0;
+            this.previousOverlapCount = characterData.previousOverlapCount || 0;
           }
           
           // Na kraju metode, nakon uspešnog učitavanja

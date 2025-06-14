@@ -178,6 +178,13 @@ class Character(db.Model):
     hit_die = db.Column(db.Integer)
     hit_dice = db.Column(db.Integer, default=1)
     
+    # Polja za choices
+    selectable_skills = db.Column(db.JSON)
+    max_selectable_skills = db.Column(db.Integer, default=0)
+    previous_race_bonus = db.Column(db.Integer, default=0)
+    previous_class_choices = db.Column(db.Integer, default=0)
+    previous_overlap_count = db.Column(db.Integer, default=0)
+    
     # Ability scores
     strength_score = db.Column(db.Integer, default=10)
     dexterity_score = db.Column(db.Integer, default=10)
@@ -1086,6 +1093,13 @@ def create_character():
             hit_die=data.get('hitDie'),
             hit_dice=data.get('hitDice', 1),
             
+            # Choices podaci
+            selectable_skills=data.get('selectableSkills', []),
+            max_selectable_skills=data.get('maxSelectableSkills', 0),
+            previous_race_bonus=data.get('previousRaceBonus', 0),
+            previous_class_choices=data.get('previousClassChoices', 0),
+            previous_overlap_count=data.get('previousOverlapCount', 0),
+            
             # Ability scores
             strength_score=data['abilities']['Strength']['score'],
             dexterity_score=data['abilities']['Dexterity']['score'],
@@ -1263,6 +1277,13 @@ def get_character(character_id):
             'hitDie': character.hit_die,
             'hitDice': character.hit_dice,
             
+            # Choices podaci
+            'selectableSkills': character.selectable_skills,
+            'maxSelectableSkills': character.max_selectable_skills,
+            'previousRaceBonus': character.previous_race_bonus,
+            'previousClassChoices': character.previous_class_choices,
+            'previousOverlapCount': character.previous_overlap_count,
+            
             # Ability scores
             'abilities': {
                 'Strength': {'score': character.strength_score},
@@ -1417,6 +1438,13 @@ def update_character(character_id):
         character.experience_points = data.get('experiencePoints', character.experience_points)
         character.hit_die = data.get('hitDie', character.hit_die)
         character.hit_dice = data.get('hitDice', character.hit_dice)
+        
+        # Choices podaci
+        character.selectable_skills = data.get('selectableSkills', character.selectable_skills)
+        character.max_selectable_skills = data.get('maxSelectableSkills', character.max_selectable_skills)
+        character.previous_race_bonus = data.get('previousRaceBonus', character.previous_race_bonus)
+        character.previous_class_choices = data.get('previousClassChoices', character.previous_class_choices)
+        character.previous_overlap_count = data.get('previousOverlapCount', character.previous_overlap_count)
         
         # Ability scores
         if 'abilities' in data:

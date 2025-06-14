@@ -111,7 +111,6 @@ export default {
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
-  cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -160,13 +159,11 @@ export default {
   font-weight: bold;
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
 }
 
 .confirm-btn:disabled {
   opacity: 0.5;
   background: #f0f0f0;
-  cursor: not-allowed;
 }
 
 .confirm-btn:hover:not(:disabled) {
