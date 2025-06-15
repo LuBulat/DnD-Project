@@ -14,7 +14,7 @@ app = Flask(__name__)
 # Omogućavanje CORS-a
 CORS(app, origins=["http://localhost:5173"], allow_headers=["Content-Type", "Authorization"], supports_credentials=True)
 
-# Konfiguracija baze podataka
+# Konfiguracija baze podataka i JWT-a
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:root@localhost/dnd'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'neki_jako_tajni_kljuc'
