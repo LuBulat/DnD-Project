@@ -2893,7 +2893,9 @@
               Object.keys(characterData.abilities).forEach(ability => {
                 if (this.character.abilities[ability]) {
                   this.character.abilities[ability].score = characterData.abilities[ability].score || 10
-                  this.character.abilities[ability].modifier = characterData.abilities[ability].modifier || 0
+                  
+                  // Izračunaj modifier na osnovu score-a umesto da koristiš vrednost iz baze
+                  this.calculateModifier(ability)
                   
                   // Ako base vrednosti nisu učitane iz baze, inicijalizujemo ih sa trenutnim vrednostima
                   if (!this.character.baseAbilityScores[ability]) {
