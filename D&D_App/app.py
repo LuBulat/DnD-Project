@@ -674,7 +674,7 @@ def get_paginated_spells(query):
     per_page = request.args.get('per_page', 10, type=int)
     search = request.args.get('search', '', type=str).strip()
     spell_type_filter = request.args.get('spell_type', '', type=str).strip()
-    spell_level_filter = request.args.get('spell_level', '', type=str).strip()  # <-- Dodato
+    spell_level_filter = request.args.get('spell_level', '', type=str).strip()
 
     # Ako postoji search, dodaj filter po imenu magije
     if search:
@@ -686,7 +686,7 @@ def get_paginated_spells(query):
 
     # Ako postoji filter po nivou magije
     if spell_level_filter != '':
-        query = query.filter(Spell.spell_level == int(spell_level_filter))  # <-- Dodato
+        query = query.filter(Spell.spell_level == int(spell_level_filter))
 
     # Paginacija sa izabranim query-jem
     spells = query.paginate(page=page, per_page=per_page, error_out=False)
