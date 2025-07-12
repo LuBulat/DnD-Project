@@ -1,7 +1,0 @@
-Ukucaj u terminal:
-
-cd "D:\1. Main quest\Projects\D&D Projekat\DnD"
-
-zatim ukucaj:
-
-.\node_modules\.bin\vite
