@@ -740,27 +740,24 @@ def register():
 
     return jsonify({"message": "Registration successful"}), 200
 
-# Ruta za prijavu
-@app.route('/api/login', methods=['POST'])
-def login():
+# Ruta za čuvanje karaktera
+@app.route('/api/characters', methods=['POST'])
+@jwt_required()
+def create_character():
     data = request.get_json()
-    if not data or not data.get('username') or not data.get('password'):
-        return jsonify({"message": "Missing credentials"}), 400
+    user_id = get_jwt_identity()
 
-    user = User.query.filter_by(username=data['username']).first()
-    if not user or not bcrypt.check_password_hash(user.password, data['password']):
-        return jsonify({"message": "Invalid credentials"}), 401
-
-    token = create_access_token(
-        identity=str(user.id),
-        additional_claims={"username": user.username}
+    char = Character(
+        name=data['name'],
+        race=data['race'],
+        char_class=data['class'],
+        level=data.get('level', 1),
+        user_id=user_id
     )
-    return jsonify({
-        "message": "Login successful",
-        "user_id": user.id,
-        "username": user.username,
-        "access_token": token
-    }), 200
+
+    db.session.add(char)
+    db.session.commit()
+    return jsonify({"message": "Character created"}), 201
 
 # Ruta za prijavu (login)
 @app.route('/api/login', methods=['POST'])
