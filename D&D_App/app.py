@@ -740,6 +740,28 @@ def register():
 
     return jsonify({"message": "Registration successful"}), 200
 
+# Ruta za prijavu
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    if not data or not data.get('username') or not data.get('password'):
+        return jsonify({"message": "Missing credentials"}), 400
+
+    user = User.query.filter_by(username=data['username']).first()
+    if not user or not bcrypt.check_password_hash(user.password, data['password']):
+        return jsonify({"message": "Invalid credentials"}), 401
+
+    token = create_access_token(
+        identity=str(user.id),
+        additional_claims={"username": user.username}
+    )
+    return jsonify({
+        "message": "Login successful",
+        "user_id": user.id,
+        "username": user.username,
+        "access_token": token
+    }), 200
+
 # Ruta za prijavu (login)
 @app.route('/api/login', methods=['POST'])
 def login():
