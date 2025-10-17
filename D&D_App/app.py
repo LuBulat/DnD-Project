@@ -740,25 +740,6 @@ def register():
 
     return jsonify({"message": "Registration successful"}), 200
 
-# Ruta za čuvanje karaktera
-@app.route('/api/characters', methods=['POST'])
-@jwt_required()
-def create_character():
-    data = request.get_json()
-    user_id = get_jwt_identity()
-
-    char = Character(
-        name=data['name'],
-        race=data['race'],
-        char_class=data['class'],
-        level=data.get('level', 1),
-        user_id=user_id
-    )
-
-    db.session.add(char)
-    db.session.commit()
-    return jsonify({"message": "Character created"}), 201
-
 # Ruta za prijavu (login)
 @app.route('/api/login', methods=['POST'])
 def login():
